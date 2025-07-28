@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 15:20:45 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/25 18:42:29 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/28 15:20:32 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube3d_bonus.h"
 
-t_img	*get_img(void)
+t_imgs	*get_img(void)
 {
-	t_img	*img;
+	t_imgs	*img;
 
-	img = malloc(sizeof(t_img));
+	img = malloc(sizeof(t_imgs));
 	if (!img)
 		return (NULL);
 	img->img = NULL;

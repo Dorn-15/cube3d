@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 18:05:18 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/24 16:11:02 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/28 15:19:44 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube3d_bonus.h"
 
-int	get_pixel(t_img *img, int x, int y)
+int	get_pixel(t_imgs *img, int x, int y)
 {
 	if (x < 0 || y < 0 || x >= img->width || y >= img->height)
 		return (0);
@@ -21,7 +21,7 @@ int	get_pixel(t_img *img, int x, int y)
 		+ (x * (img->pixel_bits / 8))));
 }
 
-void	set_pixel(t_img *img, int x, int y, int color)
+void	set_pixel(t_imgs *img, int x, int y, int color)
 {
 	if (x < 0 || y < 0 || x >= img->width || y >= img->height)
 		return ;

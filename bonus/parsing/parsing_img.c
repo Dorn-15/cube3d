@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_img.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 17:42:54 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/23 21:00:01 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/28 15:19:09 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube3d_bonus.h"
 
-static t_img	*get_target_texture(char *tmp, t_data *data)
+static t_imgs	*get_target_texture(char *tmp, t_data *data)
 {
-	t_img	*target;
+	t_imgs	*target;
 
 	target = NULL;
 	if (!ft_strncmp(tmp, "NO", 2) && !data->tex[0]->img)
@@ -31,7 +31,7 @@ static t_img	*get_target_texture(char *tmp, t_data *data)
 int	pars_img(char *tmp, t_data *data)
 {
 	char	*str;
-	t_img	*target;
+	t_imgs	*target;
 
 	target = get_target_texture(tmp, data);
 	if (!target)

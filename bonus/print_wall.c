@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print_wall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:25:57 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/25 18:10:48 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/28 15:20:15 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube3d_bonus.h"
 
-static int	calc_fade(t_ray *ray, t_img *img, int i, int color)
+static int	calc_fade(t_ray *ray, t_imgs *img, int i, int color)
 {
 	int		c[3];
 	float	fade;
@@ -40,7 +40,7 @@ static int	calc_fade(t_ray *ray, t_img *img, int i, int color)
 	return (color);
 }
 
-static int	print_texture(t_ray *ray, float y, t_img *img)
+static int	print_texture(t_ray *ray, float y, t_imgs *img)
 {
 	const int	x = ray->wall_x * img->width;
 	int			color;
@@ -53,7 +53,7 @@ static int	print_texture(t_ray *ray, float y, t_img *img)
 	return (color);
 }
 
-static void	print_wall(t_data *data, t_img *img, t_ray *ray, int side)
+static void	print_wall(t_data *data, t_imgs *img, t_ray *ray, int side)
 {
 	int		i;
 	int		color;
@@ -81,7 +81,7 @@ static void	print_wall(t_data *data, t_img *img, t_ray *ray, int side)
 	}
 }
 
-void	draw_wall(t_data *data, t_img *img, t_ray *ray, int side)
+void	draw_wall(t_data *data, t_imgs *img, t_ray *ray, int side)
 {
 	int		wall_height;
 

@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 17:00:54 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/24 19:59:53 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/28 17:32:49 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <math.h>
 # include <sys/time.h>
 # include "../libft/include/libft.h"
+# include "mlx_int.h"
 
 typedef struct s_map
 {
@@ -30,7 +31,7 @@ typedef struct s_map
 	struct s_map	*next;
 }	t_map;
 
-typedef struct s_img
+typedef struct s_imgs
 {
 	void	*img;
 	int		width;
@@ -39,12 +40,12 @@ typedef struct s_img
 	int		pixel_bits;
 	int		line_l;
 	int		endian;
-}	t_img;
+}	t_imgs;
 
 typedef struct s_data
 {
 	char			**map;
-	t_img			*tex[4];
+	t_imgs			*tex[4];
 	int				sky;
 	int				floor;
 	float			pos[2];
@@ -55,8 +56,8 @@ typedef struct s_mlx
 {
 	void		*mlx;
 	void		*win;
-	t_img		*img;
-	t_img		*weapon[2];
+	t_imgs		*img;
+	t_imgs		*weapon[2];
 	int			fire;
 	int			fire_animation;
 	int			mv_weapon[2];
@@ -94,9 +95,9 @@ int		pars_img(char *tmp, t_data *data);
 int		pars_rgb(char *tmp, t_data *data);
 void	parsing(char *str);
 
-t_img	*get_img(void);
-int		get_pixel(t_img *img, int x, int y);
-void	set_pixel(t_img *img, int x, int y, int color);
+t_imgs	*get_img(void);
+int		get_pixel(t_imgs *img, int x, int y);
+void	set_pixel(t_imgs *img, int x, int y, int color);
 int		close_win(void);
 void	make_img(void);
 int		init_mlx(t_mlx *mlx);
@@ -114,10 +115,10 @@ void	trigger_fire(t_mlx *mlx);
 long	get_current_time(void);
 int		render_loop(void *param);
 
-void	draw_wall(t_data *data, t_img *img, t_ray *ray, int side);
-void	draw_recast(t_data *data, t_img *img);
-void	draw_map(t_data *data, t_img *img);
-void	draw_weapon(t_img *img, t_img *weapon);
+void	draw_wall(t_data *data, t_imgs *img, t_ray *ray, int side);
+void	draw_recast(t_data *data, t_imgs *img);
+void	draw_map(t_data *data, t_imgs *img);
+void	draw_weapon(t_imgs *img, t_imgs *weapon);
 
 
 t_data	*get_data(void);
@@ -128,5 +129,8 @@ int		set_weapon(void);
 t_mlx	*get_mlx(void);
 void	free_mlx(void);
 void	reset_mlx(void);
+
+int	handle_focus_out(t_mlx *mlx);
+int	handle_focus_in(t_mlx *mlx);
 
 #endif

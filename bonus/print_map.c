@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:05:12 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/25 19:10:29 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/28 15:19:53 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube3d_bonus.h"
 
-static int	define_size(t_data *data, t_img *img)
+static int	define_size(t_data *data, t_imgs *img)
 {
 	static int	size = 0;
 	int			len;
@@ -39,7 +39,7 @@ static int	define_size(t_data *data, t_img *img)
 static void	draw_cube(int x, int y, int color, t_data *data)
 {
 	const int	size = define_size(NULL, NULL);
-	t_img		*img;
+	t_imgs		*img;
 	int			w;
 
 	img = get_mlx()->img;
@@ -66,7 +66,7 @@ static void	draw_cube(int x, int y, int color, t_data *data)
 static void	draw_cara(float x, float y, int color)
 {
 	const int	size = define_size(NULL, NULL);
-	t_img		*img;
+	t_imgs		*img;
 	int			i;
 	int			j;
 
@@ -87,7 +87,7 @@ static void	draw_cara(float x, float y, int color)
 	}
 }
 
-void	draw_map(t_data *data, t_img *img)
+void	draw_map(t_data *data, t_imgs *img)
 {
 	const int	size = define_size(data, img);
 	int			x;

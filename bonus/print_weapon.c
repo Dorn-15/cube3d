@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_weapon.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 21:00:31 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/25 19:32:31 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/28 15:20:23 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	free_weapon(void)
 	}
 }
 
-static void	print_cursor(t_img *img)
+static void	print_cursor(t_imgs *img)
 {
 	int	i;
 	int	x;
@@ -98,7 +98,7 @@ static int	animation(void)
 	return (x[n]);
 }
 
-void	draw_weapon(t_img *img, t_img *weapon)
+void	draw_weapon(t_imgs *img, t_imgs *weapon)
 {
 	int			x;
 	int			y;

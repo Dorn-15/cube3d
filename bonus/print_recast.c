@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print_recast.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:01:49 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/22 18:48:25 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/28 15:20:03 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube3d_bonus.h"
 
-static void	dda(t_data *data, t_img *img, t_ray *ray, int screen_x)
+static void	dda(t_data *data, t_imgs *img, t_ray *ray, int screen_x)
 {
 	int	side;
 	int	i;
@@ -62,7 +62,7 @@ static void	def_step(float x, float y, t_ray *ray)
 }
 
 //define ray direction
-void	draw_recast(t_data *data, t_img *img)
+void	draw_recast(t_data *data, t_imgs *img)
 {
 	int			i;
 	t_ray		ray;
