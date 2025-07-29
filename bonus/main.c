@@ -6,11 +6,25 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 17:00:01 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 04:41:36 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/29 15:10:45 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube3d_bonus.h"
+
+long	get_time_in_milliseconds(void)
+{
+	struct timeval	tv;
+	long			microseconds;
+	long			seconds;
+	long			milliseconds;
+
+	gettimeofday(&tv, NULL);
+	seconds = tv.tv_sec;
+	microseconds = tv.tv_usec;
+	milliseconds = (seconds * 1000) + (microseconds / 1000);
+	return (milliseconds);
+}
 
 int	main(int ac, char **av)
 {
@@ -28,6 +42,7 @@ int	main(int ac, char **av)
 	parsing(av[1]);
 	if (!init_mlx(mlx))
 		close_win();
+	mlx->current_time = get_time_in_milliseconds();
 	mlx_hook(mlx->win, 2, 1, key_press, mlx);
 	mlx_hook(mlx->win, 3, 2, key_release, mlx);
 	mlx_hook(mlx->win, FocusOut, FocusChangeMask, handle_focus_out, mlx);

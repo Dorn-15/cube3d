@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 17:00:54 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 11:03:41 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/29 15:11:16 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_mlx
 	int			keys[6];
 	int			old_mouse_pos;
 	int			focus_in;
+	long 		current_time;
 }	t_mlx;
 
 typedef struct s_ray
@@ -114,7 +115,6 @@ void	mv_cara(t_data *data);
 void	mv_cam(t_data *data);
 void	trigger_fire(t_mlx *mlx);
 
-long	get_current_time(void);
 int		render_loop(void *param);
 
 void	draw_wall(t_data *data, t_imgs *img, t_ray *ray, int side);
@@ -136,4 +136,5 @@ int	handle_focus_out(t_mlx *mlx);
 int	handle_focus_in(t_mlx *mlx);
 int	mouse_move(int x, int y, void *param);
 
+long	get_time_in_milliseconds(void);
 #endif
