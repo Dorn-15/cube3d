@@ -6,7 +6,7 @@
 /*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 18:39:41 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/25 14:05:07 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/29 15:45:26 by adoireau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	trigger_fire(t_mlx *mlx)
 	if (mlx->fire_animation <= 0)
 	{
 		mlx->fire = 1;
-		mlx->fire_animation = 20;
+		mlx->fire_animation = 5;
 		mlx->mv_weapon[0] = 10;
 		mlx->mv_weapon[1] = 0;
 	}

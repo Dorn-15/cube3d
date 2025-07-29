@@ -6,7 +6,7 @@
 /*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 17:00:54 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/21 17:27:05 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/29 15:25:49 by adoireau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_mlx
 
 typedef struct s_ray
 {
+	int		x;
 	int		map_x;
 	int		map_y;
 	float	angle;
@@ -71,9 +72,9 @@ typedef struct s_ray
 	int		step_y;
 	float	side_dist_x;
 	float	side_dist_y;
-	int		x;
 	int		side;
 	float	wall_x;
+	int		wall_height;
 	int		wall_top;
 	int		wall_bottom;
 }	t_ray;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 19:51:48 by ebella            #+#    #+#             */
-/*   Updated: 2025/07/29 15:14:33 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/29 15:47:15 by adoireau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ int	handle_loop(t_mlx *mlx)
 	int	delta_x;
 	const float	pi = 3.14159265358979323846;
 
-	
+
 	if (mlx->img->img == NULL || get_time_in_milliseconds() - mlx->current_time < 16)
 		return (0);
-	mlx->current_time = get_time_in_milliseconds();	
+	mlx->current_time = get_time_in_milliseconds();
 	mlx_mouse_get_pos(mlx->mlx, mlx->win, &mouse_x, &mouse_y);
 	delta_x = mouse_x - 800 / 2;
 	if (delta_x != 0 && mlx->focus_in)

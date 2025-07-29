@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_weapon.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 21:00:31 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/28 15:20:23 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/29 15:43:54 by adoireau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static int	animation(void)
 		pos[0] = data->pos[0];
 		pos[1] = data->pos[1];
 		t++;
-		if (t % 15 == 0)
+		if (t % 5 == 0)
 			n = (n + 1) % 7;
 	}
 	return (x[n]);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_recast.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:01:49 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/28 15:20:03 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/29 15:35:22 by adoireau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 static void	dda(t_data *data, t_imgs *img, t_ray *ray, int screen_x)
 {
 	int	side;
-	int	i;
 
-	i = 0;
 	while (data->map[ray->map_y] && data->map[ray->map_y][ray->map_x]
-			&& data->map[ray->map_y][ray->map_x] == '0' && i++ < 13)
+			&& data->map[ray->map_y][ray->map_x] == '0')
 	{
 		if (ray->side_dist_x < ray->side_dist_y)
 		{

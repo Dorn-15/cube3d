@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:05:12 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/28 15:19:53 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/29 15:28:51 by adoireau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static int	define_size(t_data *data, t_imgs *img)
 	return (size);
 }
 
-static void	draw_cube(int x, int y, int color, t_data *data)
+static void	draw_cube(int x, int y, int size, t_data *data)
 {
-	const int	size = define_size(NULL, NULL);
+	static int color = 0xFF0000;
 	t_imgs		*img;
 	int			w;
 
@@ -63,9 +63,9 @@ static void	draw_cube(int x, int y, int color, t_data *data)
 			set_pixel(img, x + size, y + w++, color);
 }
 
-static void	draw_cara(float x, float y, int color)
+static void	draw_cara(float x, float y, int size)
 {
-	const int	size = define_size(NULL, NULL);
+	static int	color = 0x00FF00;
 	t_imgs		*img;
 	int			i;
 	int			j;
@@ -89,21 +89,23 @@ static void	draw_cara(float x, float y, int color)
 
 void	draw_map(t_data *data, t_imgs *img)
 {
-	const int	size = define_size(data, img);
+	static int	size = 0;
 	int			x;
 	int			y;
 
 	y = 1;
+	if (size == 0)
+		size = define_size(data, img);
 	while (data->map[y + 1])
 	{
 		x = 0;
 		while (data->map[y][x])
 		{
 			if (data->map[y][x] == '0')
-				draw_cube(x, y, 0xFF0000, data);
+				draw_cube(x, y, size, data);
 			x++;
 		}
 		y++;
 	}
-	draw_cara(data->pos[0], data->pos[1], 0x00FF00);
+	draw_cara(data->pos[0], data->pos[1], size);
 }
