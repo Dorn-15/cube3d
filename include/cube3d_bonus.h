@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 17:00:54 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 01:56:53 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/29 11:03:41 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct s_mlx
 	t_data		*data;
 	int			keys[6];
 	int			old_mouse_pos;
+	int			focus_in;
 }	t_mlx;
 
 typedef struct s_ray

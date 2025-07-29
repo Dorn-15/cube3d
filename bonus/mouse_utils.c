@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 17:30:34 by ebella            #+#    #+#             */
-/*   Updated: 2025/07/28 17:34:50 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/29 11:04:23 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	handle_focus_out(t_mlx *mlx)
 {
 	Display	*d;
 
+	mlx->focus_in = 0;
 	d = ((t_xvar *)mlx->mlx)->display;
 	XUngrabPointer(d, CurrentTime);
 	XFlush(d);
@@ -33,6 +34,7 @@ int	handle_focus_in(t_mlx *mlx)
 		ButtonPressMask | ButtonReleaseMask | PointerMotionMask, GrabModeAsync,
 		GrabModeAsync, w, None, CurrentTime);
 	mlx_mouse_hide(mlx->mlx, mlx->win);
+	mlx->focus_in = 1;
 	XFlush(d);
 	return (0);
 }
