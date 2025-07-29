@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 17:00:54 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/28 17:32:49 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/29 01:56:53 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_mlx
 	int			mv_weapon[2];
 	t_data		*data;
 	int			keys[6];
+	int			old_mouse_pos;
 }	t_mlx;
 
 typedef struct s_ray
@@ -132,5 +133,6 @@ void	reset_mlx(void);
 
 int	handle_focus_out(t_mlx *mlx);
 int	handle_focus_in(t_mlx *mlx);
+int	mouse_move(int x, int y, void *param);
 
 #endif

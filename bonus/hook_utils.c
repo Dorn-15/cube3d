@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 19:51:48 by ebella            #+#    #+#             */
-/*   Updated: 2025/07/28 17:35:18 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/29 02:12:48 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,26 @@ int	key_press(int keycode, t_mlx *mlx)
 
 int	handle_loop(t_mlx *mlx)
 {
-	int	movement;
+	int	movement = 0;
+	int	mouse_x;
+	int	mouse_y;
+	int	delta_x;
+	const float	pi = 3.14159265358979323846;
 
-	movement = 0;
 	if (mlx->img->img == NULL)
 		return (0);
+	mlx_mouse_get_pos(mlx->mlx, mlx->win, &mouse_x, &mouse_y);
+	delta_x = mouse_x - 800 / 2;
+	if (delta_x != 0)
+	{
+		mlx->data->r += delta_x * 0.003;
+		if (mlx->data->r < 0)
+			mlx->data->r += 2 * pi;
+		else if (mlx->data->r > 2 * pi)
+			mlx->data->r -= 2 * pi;
+		movement = 1;
+		mlx_mouse_move(mlx->mlx, mlx->win, 800 / 2, 800 / 2);
+	}
 	if (mlx->keys[0] || mlx->keys[1] || mlx->keys[2] || mlx->keys[3])
 	{
 		mv_cara(mlx->data);
