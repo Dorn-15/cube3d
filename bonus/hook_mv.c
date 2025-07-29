@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_mv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 14:03:57 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 15:47:15 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:40:09 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 static void	check_mv(float x, float y, t_data *data)
 {
-	if (data->map[(int) data->pos[1]][(int) x] == '0')
+	if (data->map[(int) data->pos[1]][(int) x] == '0'
+		|| data->map[(int) data->pos[1]][(int) x] == 'D')
 		data->pos[0] = x;
-	if (data->map[(int) y][(int) data->pos[0]] == '0')
+	if (data->map[(int) y][(int) data->pos[0]] == '0'
+		|| data->map[(int) y][(int) data->pos[0]] == 'D')
 		data->pos[1] = y;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:00:54 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/22 16:34:13 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:11:54 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,21 @@ static int	init_spawn(char **map, int y, int x)
 	return (1);
 }
 
+int	check_door_walls(char **map, int y, int x)
+{
+	if ((map[y + 1][x] == '1' && map[y - 1][x] == '1' && map[y][x + 1] == '0'
+			&& map[y][x - 1] == '0') || (map[y + 1][x] == '0' && map[y
+			- 1][x] == '0' && map[y][x + 1] == '1' && map[y][x - 1] == '1'))
+		return (1);
+	return (0);
+}
+
 static int	check_close_map(char **map, int y, int x, int len)
 {
 	if ((map[y][x] == 'N' || map[y][x] == 'S' || map[y][x] == 'E'
 			|| map[y][x] == 'W') && !init_spawn(map, y, x))
+		return (0);
+	if (map[y][x] == 'D' && !check_door_walls(map, y, x))
 		return (0);
 	if (!map[y][x - 1] || map[y][x - 1] == ' ')
 		return (0);
@@ -72,9 +83,9 @@ static int	check_first_last(char *map)
 
 static int	check_map(char **map)
 {
-	int		x;
-	int		y;
-	int		len;
+	int	x;
+	int	y;
+	int	len;
 
 	if (!map)
 		return (0);
@@ -87,8 +98,8 @@ static int	check_map(char **map)
 		len = ft_strlen(map[y]);
 		while (map[y][x])
 		{
-			if (map[y][x] != ' ' && map[y][x] != '1'
-				&& (x == 0 || x == len - 1 || !check_close_map(map, y, x, len)))
+			if (map[y][x] != ' ' && map[y][x] != '1' && (x == 0 || x == len - 1
+					|| !check_close_map(map, y, x, len)))
 				return (0);
 			x++;
 		}

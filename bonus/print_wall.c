@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_wall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:25:57 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 15:36:54 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:39:16 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ static void	print_wall(t_data *data, t_imgs *img, t_ray *ray, int side)
 	int		color;
 	t_imgs	*tex;
 
+	// if (data->map[ray->map_y][ray->map_x] == 'D')
+	// 	tex = data->tex[5];
 	if (side == 0 && ray->cos_angle < 0)
 		tex = data->tex[2];
 	else if (side == 0)

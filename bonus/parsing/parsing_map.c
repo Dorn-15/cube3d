@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:28:59 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/22 16:34:23 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:12:40 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ static int	check_line(char *str)
 	while (str[i] && (str[i] == ' '
 			|| str[i] == '1' || str[i] == '0'
 			|| str[i] == 'N' || str[i] == 'S'
-			|| str[i] == 'E' || str[i] == 'W'))
+			|| str[i] == 'E' || str[i] == 'W')
+			|| str[i] == 'D')
 		i++;
 	if (str[i] && str[i] != '\n')
 		return (0);
