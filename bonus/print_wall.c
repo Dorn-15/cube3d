@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_wall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:25:57 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 16:39:16 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/29 17:12:36 by adoireau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ static void	print_wall(t_data *data, t_imgs *img, t_ray *ray, int side)
 	int		color;
 	t_imgs	*tex;
 
-	// if (data->map[ray->map_y][ray->map_x] == 'D')
-	// 	tex = data->tex[5];
 	if (side == 0 && ray->cos_angle < 0)
 		tex = data->tex[2];
 	else if (side == 0)
@@ -66,17 +64,17 @@ static void	print_wall(t_data *data, t_imgs *img, t_ray *ray, int side)
 	else
 		tex = data->tex[1];
 	i = 0;
-	while(i < img->height && i < ray->wall_top)
+	while (i < img->height && i < ray->wall_top)
 	{
 		set_pixel(img, ray->x, i, calc_fade(ray, img, i, data->sky));
 		i++;
 	}
-	while(i < img->height && i < ray->wall_bottom)
+	while (i < img->height && i < ray->wall_bottom)
 	{
 		set_pixel(img, ray->x, i, calc_fade(ray, img, i, print_texture(ray, i, tex)));
 		i++;
 	}
-	while(i < img->height)
+	while (i < img->height)
 	{
 		set_pixel(img, ray->x, i, calc_fade(ray, img, i, data->sky));
 		i++;

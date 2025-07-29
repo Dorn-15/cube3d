@@ -6,7 +6,7 @@
 /*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:05:12 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 15:28:51 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/29 17:14:52 by adoireau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,33 @@ static int	define_size(t_data *data, t_imgs *img)
 	return (size);
 }
 
+static void	draw_d(int x, int y, int size, t_data *data)
+{
+	static int	color = 0xFFFF00;
+	t_imgs		*img;
+	int			w;
+
+	img = get_mlx()->img;
+	x *= size;
+	y *= size;
+	w = 1;
+	if (data->map[(y / size) - 1][x / size] == '1')
+	{
+		x += size-- / 2;
+		while (w <= size)
+			set_pixel(img, x, y + w++, color);
+	}
+	else
+	{
+		y += size-- / 2;
+		while (w <= size)
+			set_pixel(img, x + w++, y, color);
+	}
+}
+
 static void	draw_cube(int x, int y, int size, t_data *data)
 {
-	static int color = 0xFF0000;
+	static int	color = 0xFF0000;
 	t_imgs		*img;
 	int			w;
 
@@ -78,11 +102,7 @@ static void	draw_cara(float x, float y, int size)
 	{
 		j = 0;
 		while (j < size / 4)
-		{
-			if (i * i + j * j <= size * size / 16)
-				set_pixel(img, x + i - size / 8, y + j - size / 8, color);
-			j++;
-		}
+			set_pixel(img, x + i - size / 8, y + j++ - size / 8, color);
 		i++;
 	}
 }
@@ -103,6 +123,11 @@ void	draw_map(t_data *data, t_imgs *img)
 		{
 			if (data->map[y][x] == '0')
 				draw_cube(x, y, size, data);
+			else if (data->map[y][x] == 'D')
+			{
+				draw_cube(x, y, size, data);
+				draw_d(x, y, size, data);
+			}
 			x++;
 		}
 		y++;
