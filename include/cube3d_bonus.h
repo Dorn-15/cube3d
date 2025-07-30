@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 17:00:54 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 16:27:13 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/30 16:43:37 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_imgs
 typedef struct s_data
 {
 	char			**map;
-	t_imgs			*tex[6];
+	t_imgs			*tex[5];
 	int				sky;
 	int				floor;
 	float			pos[2];

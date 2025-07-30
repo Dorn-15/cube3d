@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 20:09:10 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/22 16:34:32 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:20:35 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	pars_element(int fd, t_data *data, char **str)
 			continue ;
 		if (!tmp[0])
 			free(tmp);
-		else if ((pars_img(tmp, data) || pars_rgb(tmp, data)) && ++elem <= 6)
+		else if ((pars_img(tmp, data) || pars_rgb(tmp, data)) && ++elem <= 7)
 			free(tmp);
 		else
 		{
@@ -74,7 +74,7 @@ static void	pars_file(int fd)
 
 	data = get_data();
 	str = ft_get_next_line(fd);
-	if (pars_element(fd, data, &str) != 6)
+	if (pars_element(fd, data, &str) != 7)
 	{
 		free(str);
 		close(fd);

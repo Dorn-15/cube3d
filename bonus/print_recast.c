@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:01:49 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 16:38:49 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/30 19:16:11 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	dda(t_data *data, t_imgs *img, t_ray *ray, int screen_x)
 	int	side;
 
 	while (data->map[ray->map_y] && data->map[ray->map_y][ray->map_x]
-			&& data->map[ray->map_y][ray->map_x] == '0')
+			&& (data->map[ray->map_y][ray->map_x] == '0' || data->map[ray->map_y][ray->map_x] == 'D'))
 	{
 		if (ray->side_dist_x < ray->side_dist_y)
 		{

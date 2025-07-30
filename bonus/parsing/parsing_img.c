@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 17:42:54 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/28 15:19:09 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/30 17:35:16 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ static t_imgs	*get_target_texture(char *tmp, t_data *data)
 		target = data->tex[2];
 	else if (!ft_strncmp(tmp, "EA", 2) && !data->tex[3]->img)
 		target = data->tex[3];
+	else if (!ft_strncmp(tmp, "D", 1) && !data->tex[4]->img)
+		target = data->tex[4];
 	return (target);
 }
 

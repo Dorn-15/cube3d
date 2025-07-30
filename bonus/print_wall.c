@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_wall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:25:57 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 17:12:36 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/30 19:19:26 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,16 @@ static void	print_wall(t_data *data, t_imgs *img, t_ray *ray, int side)
 	int		color;
 	t_imgs	*tex;
 
-	if (side == 0 && ray->cos_angle < 0)
+	if (side == 0 && ray->cos_angle < 0 && data->map[ray->map_y][ray->map_x + 1] != 'D')
 		tex = data->tex[2];
-	else if (side == 0)
+	else if (side == 0 && ray->cos_angle > 0 && data->map[ray->map_y][ray->map_x - 1] != 'D')
 		tex = data->tex[3];
-	else if (ray->sin_angle < 0)
+	else if (side == 1 && ray->sin_angle < 0 && data->map[ray->map_y + 1][ray->map_x] != 'D')
 		tex = data->tex[0];
-	else
+	else if (side == 1 && ray->sin_angle > 0 && data->map[ray->map_y - 1][ray->map_x] != 'D')
 		tex = data->tex[1];
+	else 
+		tex = data->tex[4];
 	i = 0;
 	while (i < img->height && i < ray->wall_top)
 	{

@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 15:20:45 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/28 15:20:32 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/30 17:08:04 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_data	*get_data(void)
 			return (NULL);
 		data->map = NULL;
 		data->pos[0] = 0;
-		while (i < 4)
+		while (i < 5)
 		{
 			data->tex[i] = get_img();
 			if (!data->tex[i])
@@ -64,7 +64,7 @@ void	free_data(void)
 	if (data)
 	{
 		i = 0;
-		while (i < 4)
+		while (i < 5)
 		{
 			if (data->tex[i])
 			{
