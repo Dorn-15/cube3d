@@ -6,7 +6,7 @@
 /*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:05:12 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 17:14:52 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:31:53 by adoireau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	draw_map(t_data *data, t_imgs *img)
 		{
 			if (data->map[y][x] == '0')
 				draw_cube(x, y, size, data);
-			else if (data->map[y][x] == 'D')
+			else if (data->map[y][x] == 'D' || data->map[y][x] == 'O')
 			{
 				draw_cube(x, y, size, data);
 				draw_d(x, y, size, data);

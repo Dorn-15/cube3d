@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 19:51:48 by ebella            #+#    #+#             */
-/*   Updated: 2025/07/31 16:21:04 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/31 16:36:06 by adoireau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int	handle_loop(t_mlx *mlx)
 			mlx->data->map[mlx->data->door_pos[0]][mlx->data->door_pos[1]] = 'O';
 		else
 			mlx->data->map[mlx->data->door_pos[0]][mlx->data->door_pos[1]] = 'D';
+		mlx->keys[6] = 0;
 		movement = 1;
 	}
 	if (mlx->fire_animation > 0)
