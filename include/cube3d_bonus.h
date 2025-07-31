@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 17:00:54 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/30 16:43:37 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/31 15:02:26 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ typedef struct s_data
 	int				sky;
 	int				floor;
 	float			pos[2];
+	int				door_pos[2];
+	int				door_open;
 	float			r;
 }	t_data;
 
@@ -62,7 +64,7 @@ typedef struct s_mlx
 	int			fire_animation;
 	int			mv_weapon[2];
 	t_data		*data;
-	int			keys[6];
+	int			keys[7];
 	int			old_mouse_pos;
 	int			focus_in;
 	long 		current_time;

@@ -6,11 +6,37 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:01:49 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/30 19:16:11 by ebella           ###   ########.fr       */
+/*   Updated: 2025/07/31 15:37:04 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube3d_bonus.h"
+
+static void	is_door(t_data *data, t_ray *ray)
+{
+	const float	pi = 3.14159265358979323846;
+	int 		x;
+	int			y;
+
+	x = data->pos[0];
+	y = data->pos[1];
+	if ((data->r > (1.75 * pi) && data->r < 2 * pi) || (data->r > 0 && data->r < pi/4))
+		x += 1;
+	else if (data->r > pi/4 && data->r < 0.75 * pi)
+		y += 1;
+	else if (data->r > 0.75 * pi && data->r < 1.25 * pi)
+		x -= 1;
+	else if (data->r > 1.25 * pi && data->r < 1.75 * pi)
+		y -= 1;
+	if (data->map[y][x] == 'D' || data->map[y][x] == 'O')
+	{
+		data->door_pos[0] = y;
+		data->door_pos[1] = x;
+		data->door_open = 1;
+	}
+	else
+		data->door_open = 0;
+}
 
 static void	dda(t_data *data, t_imgs *img, t_ray *ray, int screen_x)
 {
@@ -32,6 +58,8 @@ static void	dda(t_data *data, t_imgs *img, t_ray *ray, int screen_x)
 			side = 1;
 		}
 	}
+	if (ray->x == img->width / 2)
+		is_door(data, ray);
 	draw_wall(data, img, ray, side);
 }
 

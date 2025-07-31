@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 18:39:41 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 15:45:26 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:15:14 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	get_key_index(int keycode)
 		return (4);
 	else if (keycode == 65363)
 		return (5);
+	else if (keycode == 101)
+		return (6);
 	return (-1);
 }
 
