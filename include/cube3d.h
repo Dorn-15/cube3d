@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adoireau <adoireau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 17:00:54 by adoireau          #+#    #+#             */
-/*   Updated: 2025/07/29 15:25:49 by adoireau         ###   ########.fr       */
+/*   Updated: 2025/08/11 20:00:05 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_mlx
 	void		*win;
 	t_img		*img;
 	t_data		*data;
+	int			keys[6];
 }	t_mlx;
 
 typedef struct s_ray
@@ -95,6 +96,12 @@ void	make_img(void);
 int		init_mlx(t_mlx *mlx);
 
 int		key_press(int keycode, t_mlx *mlx);
+int		key_release(int keycode, t_mlx *mlx);
+int		handle_loop(t_mlx *mlx);
+int		get_key_index(int keycode);
+void	mv_cara(t_data *data);
+void	mv_cam(t_data *data);
+
 
 void	draw_wall(t_data *data, t_img *img, t_ray *ray, int side);
 void	draw_recast(t_data *data, t_img *img);

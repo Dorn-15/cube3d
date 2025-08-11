@@ -13,6 +13,7 @@ CFLAGS = -I$(INC) -I$(LIBFT_DIR)/include -O3 -g
 SRC = ./src/main.c \
 	./src/mlx.c \
 	./src/hook.c \
+	./src/hook_mv.c \
 	./src/parsing/parsing.c \
 	./src/parsing/parsing_img.c \
 	./src/parsing/parsing_rgb.c \
@@ -26,6 +27,7 @@ SRC = ./src/main.c \
 BONUS_SRC = ./bonus/main.c \
 	./bonus/mlx.c \
 	./bonus/hook.c \
+	./bonus/hook_mv.c \
 	./bonus/parsing/parsing.c \
 	./bonus/parsing/parsing_img.c \
 	./bonus/parsing/parsing_rgb.c \
@@ -38,7 +40,6 @@ BONUS_SRC = ./bonus/main.c \
 	./bonus/print_map.c \
 	./bonus/print_weapon.c \
 	./bonus/hook_utils.c \
-	./bonus/hook_mv.c \
 	./bonus/mouse_utils.c
 
 OBJ = $(SRC:%.c=%.o)
